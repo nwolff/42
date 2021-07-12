@@ -4,19 +4,17 @@ void ft_putnbr(int nb);
 
 void ft_putnbr(int nb)
 {
-	const char zero = '0';
 	if (nb == 0)
 	{
-		write(1, &zero, 1);
+		write(1, "0", 1);
 		return;
 	}
 
 	long l = nb; // We use a long because we need to contain -INT_MIN which is one larger than INT_MAX
 
-	const char minus = '-';
 	if (l < 0)
 	{
-		write(1, &minus, 1);
+		write(1, "-", 1);
 		l = -l;
 	}
 

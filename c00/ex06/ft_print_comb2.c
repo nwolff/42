@@ -2,25 +2,33 @@
 
 void ft_print_comb2(void);
 
+void write_ij(int i, int j, int first_time)
+{
+	if (!first_time)
+		write(1, ", ", 2);
+
+	char buffer[5];
+	buffer[0] = (i / 10) + '0';
+	buffer[1] = (i % 10) + '0';
+	buffer[2] = ' ';
+	buffer[3] = (j / 10) + '0';
+	buffer[4] = (j % 10) + '0';
+	write(1, buffer, 5);
+}
+
 void ft_print_comb2(void)
 {
-	char separator[] = ", ";
 	int first_time = 1;
-	char buffer[5];
-	buffer[2] = ' ';
-	for (int i = 0; i <= 99; i++)
+	int i = 0;
+	while (i <= 99)
 	{
-		buffer[0] = (i / 10) + '0';
-		buffer[1] = (i % 10) + '0';
-		for (int j = i + 1; j <= 99; j++)
+		int j = i + 1;
+		while (j <= 99)
 		{
-			buffer[3] = (j / 10) + '0';
-			buffer[4] = (j % 10) + '0';
-			if (first_time)
-				first_time = 0;
-			else
-				write(1, separator, 2);
-			write(1, buffer, 5);
+			write_ij(i, j, first_time);
+			first_time = 0;
+			j++;
 		}
+		i++;
 	}
 }

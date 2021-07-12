@@ -8,3 +8,5 @@ bin/
 obj/
 runme
 test
+a.out
+.DS_Store
